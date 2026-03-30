@@ -50,6 +50,10 @@ main{
     filter: drop-shadow(8px 12px 4px #2a232b60);
 }
 
+.pokemon-card:hover{
+    filter: drop-shadow(0 0 16px #ffffff);
+}
+
 .pokemon-header{
     width: 90%;
     display: flex;
