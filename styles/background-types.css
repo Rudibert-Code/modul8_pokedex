@@ -1,9 +1,19 @@
 .bg-fire{
-    background-color: #DB082D;
+    background-image: linear-gradient(to bottom, #ff6f0f, rgb(255, 187, 0));
 }
+
+.placeholder{
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    background-color: #ff5100;
+    filter: drop-shadow(0 8px 16px #0050fc6c);
+}
+
+
 .bg-water{
-    background-color: #00a6ff;
+    background-image: linear-gradient(to bottom, #e3652a, yellow);
 }
 .bg-grass{
-    background-color: #22dc1c;
+    background-image: linear-gradient(to bottom, #e3652a, yellow);
 }
