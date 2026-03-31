@@ -12,6 +12,10 @@ async function fetchData(){
     showLoadingSpinner()  
     response = await fetch (`https://pokeapi.co/api/v2/pokemon?limit=${renderLimit}&offset=${offset}`);
     offset = offset + renderLimit;
+
+    // overwrites current JSON, causes detail-viewer window to show wrong pokemon
+    // find methode to expand JSON instead
+
     pokedexData = await response.json(); 
     renderList();
 }
@@ -58,8 +62,7 @@ async function openDetailViewer(pokemonID){
     detailViewer = await response.json(); 
     document.getElementById('detail-viewer').innerHTML = detailViewerTemplate(detailViewer);
     document.getElementById('pokemonAudio').src = detailViewer.cries.latest;
-    document.getElementById('pokemonAudio').volume = 0.05;
-    playCrie();
+    document.getElementById('pokemonAudio').volume = 0.03;
     document.getElementById('detail-viewer').showModal();
     document.documentElement.classList.add("scroll-stopper");
 }

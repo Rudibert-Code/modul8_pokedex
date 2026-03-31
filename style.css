@@ -232,3 +232,7 @@ dialog::backdrop{
 .detail-viewer-icon:hover{
     filter: drop-shadow(0 0 16px #ffffff);
 }
+
+.clickable{
+    cursor: pointer;
+}

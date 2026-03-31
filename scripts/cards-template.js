@@ -19,7 +19,7 @@ function detailViewerTemplate(pokemon){
         <section class="pokemon-header detail-header">
             <p>${getNumber(pokemon.id)}</p>
             <h2>${pokemon.name}</h2>
-            <p onclick="closeDetailViewer()">X</p>
+            <p class="clickable" onclick="closeDetailViewer()">X</p>
         </section>
         <img class="detail-viewer-icon" src="./assets/icons/icon-sound.png" onclick="playCrie()">
         <section class="detail-viewer-canvas">
