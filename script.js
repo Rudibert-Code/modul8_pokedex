@@ -8,6 +8,7 @@ function init(){
 }
 
 async function fetchData(){
+    showLoadingSpinner()  
     response = await fetch (`https://pokeapi.co/api/v2/pokemon?limit=${renderLimit}&offset=${offset}`);
     offset = offset + renderLimit;
     pokedexData = await response.json(); 
@@ -25,6 +26,7 @@ async function renderList(){
     }
     document.getElementById('next-min').innerHTML = offset + 1;
     document.getElementById('next-max').innerHTML = offset + renderLimit;
+    closeLoadingScreen();
 }
 
 function cardTemplate(pokemon){
@@ -67,4 +69,12 @@ function getType(pokemon){
 
 function showLoadingSpinner(){
     document.getElementById('loading').showModal();
+    document.documentElement.classList.add("scroll-stopper");
+}
+
+const loadingTime = setTimeout(closeLoadingScreen, 10000);
+
+function closeLoadingScreen(){ 
+    document.getElementById('loading').close();
+    document.documentElement.classList.remove("scroll-stopper");
 }

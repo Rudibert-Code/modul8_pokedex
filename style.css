@@ -144,11 +144,16 @@ dialog{
     outline-style: none;
     padding: 0;
     background-color: rgba(0, 0, 0, 0);
+    opacity: 50%;
 }
 
 dialog::backdrop{
     background-color: black;
     opacity: 0.66;
+}
+
+.scroll-stopper{
+    overflow-y: hidden;
 }
 
 .loading-icon {
