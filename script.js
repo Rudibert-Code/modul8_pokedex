@@ -19,13 +19,14 @@ async function renderList(){
         pokemonDetails = [];
         response = await fetch (pokedexData.results[i].url);
         pokemonDetails = await response.json(); 
-        document.getElementById('main-container').innerHTML += cardTemplate(pokemonDetails);     
+        document.getElementById('main-container').innerHTML += cardTemplate(pokemonDetails);
+        getType(pokemonDetails);     
     }
 
 }
 
 function cardTemplate(pokemon){
-    return `<div class="pokemon-card bg-normal">
+    return `<div class="pokemon-card bg-${pokemon.types[0].type.name}">
         <section class="pokemon-header">
             <p>${getNumber(pokemon.id)}</p>
             <h2>${pokemon.name}</h2>
@@ -34,8 +35,8 @@ function cardTemplate(pokemon){
             <img class="pokemon-img" src="./assets/img/132.webp" alt="">
         </section>
         <section class="pokemon-type">
-            <div class="placeholder"></div>
-            <div class="placeholder"></div>
+            <img class="iconType" id="${pokemon.name}-type-1" src="">
+            <img class="iconType" id="${pokemon.name}-type-2" src="">
         </section>
     </div>`;
 }
@@ -52,6 +53,12 @@ function getNumber(index){
     return number
 }
 
-function getTypes(numberOfTypes){
+function getType(pokemon){
+    if (pokemon.types.length == 2) {
+        document.getElementById(`${pokemon.name}-type-2`).src=`./assets/icons/types/${pokemon.types[0].type.name}.png`;
+        document.getElementById(`${pokemon.name}-type-1`).src=`./assets/icons/types/${pokemon.types[1].type.name}.png`;
+    } else{
+        document.getElementById(`${pokemon.name}-type-2`).src=`./assets/icons/types/${pokemon.types[0].type.name}.png`;
+        document.getElementById(`${pokemon.name}-type-1`).classList.toggle("hidden");
+    }
 }
-

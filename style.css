@@ -103,3 +103,7 @@ p{
     gap: 8px;
     margin: 0;
 }
+
+.hidden{
+    display: none;
+}
