@@ -13,3 +13,21 @@ function cardTemplate(pokemon){
         </section>
     </div>`;
 }
+
+function detailViewerTemplate(pokemon){
+    return `<section class="pokemon-detail-viewer bg-${pokemon.types[0].type.name}">
+        <section class="pokemon-header detail-header">
+            <p>${getNumber(pokemon.id)}</p>
+            <h2>${pokemon.name}</h2>
+            <p onclick="closeDetailViewer()">X</p>
+        </section>
+        <section class="pokemon-canvas">
+            <img class="detail-img" src="${pokemon.sprites.front_default}">
+        </section>
+        <section>
+            <section></section>
+            <section></section>
+            <section></section>
+        </section>
+    </section>`;
+}
