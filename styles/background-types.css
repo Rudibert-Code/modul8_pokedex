@@ -1,5 +1,18 @@
+
+.bg-normal{
+    background-image: linear-gradient(to bottom, #dbdbdb, rgb(255, 255, 255));
+}
+
 .bg-fire{
     background-image: linear-gradient(to bottom, #ff6f0f, rgb(255, 187, 0));
+}
+
+.bg-water{
+    background-image: linear-gradient(to bottom, #0f77ff, rgb(0, 213, 255));
+}
+
+.bg-grass{
+    background-image: linear-gradient(to bottom, #0fff1b, rgb(89, 255, 0));
 }
 
 .placeholder{
@@ -7,12 +20,4 @@
     height: 40px;
     border-radius: 50px;
     background-color: #ff5100;
-}
-
-
-.bg-water{
-    background-image: linear-gradient(to bottom, #e3652a, yellow);
-}
-.bg-grass{
-    background-image: linear-gradient(to bottom, #e3652a, yellow);
 }
