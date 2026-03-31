@@ -15,7 +15,6 @@ async function fetchData(){
     renderList();
 }
 
-
 async function renderList(){
     for (let i = 0; i < renderLimit; i++) {
         pokemonDetails = [];
@@ -49,4 +48,8 @@ function getType(pokemon){
         document.getElementById(`${pokemon.name}-type-2`).src=`./assets/icons/types/${pokemon.types[0].type.name}.png`;
         document.getElementById(`${pokemon.name}-type-1`).classList.toggle("hidden");
     }
+}
+
+function openDetailViewer(){
+    document.getElementById('detail-viewer').showModal();
 }

@@ -1,5 +1,5 @@
 function cardTemplate(pokemon){
-    return `<div class="pokemon-card bg-${pokemon.types[0].type.name}">
+    return `<div class="pokemon-card bg-${pokemon.types[0].type.name}" onclick="openDetailViewer()">
         <section class="pokemon-header">
             <p>${getNumber(pokemon.id)}</p>
             <h2>${pokemon.name}</h2>
