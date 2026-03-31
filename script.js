@@ -64,3 +64,7 @@ function getType(pokemon){
         document.getElementById(`${pokemon.name}-type-1`).classList.toggle("hidden");
     }
 }
+
+function showLoadingSpinner(){
+    document.getElementById('loading').showModal();
+}

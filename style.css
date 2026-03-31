@@ -135,3 +135,32 @@ footer{
     background-color: #DB082D;
     filter: drop-shadow(0 -4px 2px rgba(55, 3, 58, 0.671));;
 }
+
+
+
+
+dialog{
+    border: none;
+    outline-style: none;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+dialog::backdrop{
+    background-color: black;
+    opacity: 0.66;
+}
+
+.loading-icon {
+    background-image: url(./assets/img/icon_p-ball.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 320px;
+    height: 320px;
+    animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
