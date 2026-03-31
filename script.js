@@ -57,6 +57,9 @@ async function openDetailViewer(pokemonID){
     response = await fetch (pokedexData.results[pokemonID].url);
     detailViewer = await response.json(); 
     document.getElementById('detail-viewer').innerHTML = detailViewerTemplate(detailViewer);
+    document.getElementById('pokemonAudio').src = detailViewer.cries.latest;
+    document.getElementById('pokemonAudio').volume = 0.05;
+    playCrie();
     document.getElementById('detail-viewer').showModal();
     document.documentElement.classList.add("scroll-stopper");
 }
@@ -64,4 +67,8 @@ async function openDetailViewer(pokemonID){
 function closeDetailViewer(){
     document.getElementById('detail-viewer').close();
     document.documentElement.classList.remove("scroll-stopper");
+}
+
+function playCrie(){
+    document.getElementById('pokemonAudio').play();
 }

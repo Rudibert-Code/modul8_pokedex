@@ -5,7 +5,7 @@ function cardTemplate(pokemon){
             <h2>${pokemon.name}</h2>
         </section>
         <section class="pokemon-canvas">
-            <img class="pokemon-img" src="${pokemon.sprites.front_default}" alt="">
+            <img class="pokemon-img" src="${pokemon.sprites.front_default}">
         </section>
         <section class="pokemon-type">
             <img class="iconType" id="${pokemon.name}-type-1" src="">
@@ -21,13 +21,13 @@ function detailViewerTemplate(pokemon){
             <h2>${pokemon.name}</h2>
             <p onclick="closeDetailViewer()">X</p>
         </section>
-        <section class="pokemon-canvas">
+        <img class="detail-viewer-icon" src="./assets/icons/icon-sound.png" onclick="playCrie()">
+        <section class="detail-viewer-canvas">
             <img class="detail-img" src="${pokemon.sprites.front_default}">
         </section>
-        <section>
-            <section></section>
-            <section></section>
-            <section></section>
+        <section class="detail-viewer-info-box">
+            <section class="detail-viewer-info-selection"></section>
+            <section id="details"></section>
         </section>
     </section>`;
 }
