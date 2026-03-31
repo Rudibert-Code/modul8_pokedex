@@ -183,3 +183,14 @@ dialog::backdrop{
     border-color: #FFE658;
     filter: drop-shadow(8px 12px 4px #2a232b60);
 }
+
+.detail-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 16px;
+}
+
+.detail-img{
+    width: 320px;
+}

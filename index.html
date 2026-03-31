@@ -18,15 +18,17 @@
     </header>
     <main>
         <dialog class="loading-icon" id="loading"></dialog>
+
+
         <dialog id="detail-viewer">
             <section class="pokemon-detail-viewer">
-                <section class="pokemon-header">
+                <section class="pokemon-header detail-header">
                     <p id="detail-number"></p>
                     <h2 id="detail-name"></h2>
                     <p onclick="closeDetailViewer()">X</p>
                 </section>
                 <section>
-                    <img src="./assets/img/132.webp">
+                    <img class="detail-img" src="./assets/img/132.webp" id="detail-image">
                 </section>
                 <section>
                     <section></section>
@@ -35,6 +37,8 @@
                 </section>
             </section>
         </dialog>
+
+
         <section class="main-container" id="main-container">
         </section>
         <a class="pokemon-header btn-a" onclick="fetchData()"><p id="next-min"></p> - <p id="next-max"></p></a>

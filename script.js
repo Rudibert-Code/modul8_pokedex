@@ -1,5 +1,6 @@
 let pokedexData = [];
 let pokemonDetails = [];
+let detailViewer = [];
 let renderLimit = 20;
 let offset = 0;
 
@@ -50,6 +51,20 @@ function getType(pokemon){
     }
 }
 
-function openDetailViewer(){
+async function openDetailViewer(pokemonID){
+    pokemonID--
+    detailViewer = [];
+    response = await fetch (pokedexData.results[pokemonID].url);
+    detailViewer = await response.json(); 
+    document.getElementById('detail-name').innerHTML = detailViewer.name;
+    document.getElementById('detail-number').innerHTML = getNumber(detailViewer.id);
+    document.getElementById('detail-image').src = detailViewer.sprites.front_default;
+
     document.getElementById('detail-viewer').showModal();
+    document.documentElement.classList.add("scroll-stopper");
+}
+
+function closeDetailViewer(){
+    document.getElementById('detail-viewer').close();
+    document.documentElement.classList.remove("scroll-stopper");
 }
