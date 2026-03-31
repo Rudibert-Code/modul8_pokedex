@@ -1,14 +1,15 @@
 let pokedexData = [];
 let pokemonDetails = [];
 let renderLimit = 20;
+let offset = 0;
 
 function init(){
     fetchData();
 }
 
 async function fetchData(){
-    pokedexData = [];
-    response = await fetch ("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0");
+    response = await fetch (`https://pokeapi.co/api/v2/pokemon?limit=${renderLimit}&offset=${offset}`);
+    offset = offset + renderLimit;
     pokedexData = await response.json(); 
     renderList();
 }
@@ -22,7 +23,8 @@ async function renderList(){
         document.getElementById('main-container').innerHTML += cardTemplate(pokemonDetails);
         getType(pokemonDetails);     
     }
-
+    document.getElementById('next-min').innerHTML = offset + 1;
+    document.getElementById('next-max').innerHTML = offset + renderLimit;
 }
 
 function cardTemplate(pokemon){

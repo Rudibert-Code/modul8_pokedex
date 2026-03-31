@@ -43,12 +43,16 @@
     background-image: linear-gradient(to bottom, #b300c7, #ff15f7);
 }
 
+.bg-psychic{
+    background-image: linear-gradient(to bottom, #73009d, #6635af);
+}
+
 .bg-ghost{
     background-image: linear-gradient(to bottom, #431e8d, #6a48ad);
 }
 
-.bg-dark{
-    background-image: linear-gradient(to bottom, #44306d, #4c4065);
+.bg-poison{
+    background-image: linear-gradient(to bottom, #621982, #8251ad);
 }
 
 .bg-fairy{
@@ -68,5 +72,5 @@
     height: 40px;
     border-radius: 50px;
     background-color: #ff5100;
-    filter: drop-shadow(0 4px 2px rgba(49, 47, 50, 0.488));
+    filter: drop-shadow(0 4px 2px rgba(55, 3, 58, 0.671));
 }
