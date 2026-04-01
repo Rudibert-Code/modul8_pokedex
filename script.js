@@ -11,12 +11,15 @@ function init(){
 async function fetchData(){
     showLoadingSpinner()  
     response = await fetch (`https://pokeapi.co/api/v2/pokemon?limit=${renderLimit}&offset=${offset}`);
-    offset = offset + renderLimit;
+    
+    //if (offset == 0) {
+    //    pokedexData = await response.json(); 
+    //} else{
+    //}
 
-    // overwrites current JSON, causes detail-viewer window to show wrong pokemon
-    // find methode to expand JSON instead
+    pokedexData = await response.json();
 
-    pokedexData = await response.json(); 
+    offset += renderLimit;
     renderList();
 }
 
@@ -26,7 +29,8 @@ async function renderList(){
         response = await fetch (pokedexData.results[i].url);
         pokemonDetails = await response.json(); 
         document.getElementById('main-container').innerHTML += cardTemplate(pokemonDetails);
-        getType(pokemonDetails);     
+        getType(pokemonDetails); 
+        //getStats(pokemonDetails);    
     }
     document.getElementById('next-min').innerHTML = offset + 1;
     document.getElementById('next-max').innerHTML = offset + renderLimit;
@@ -75,3 +79,8 @@ function closeDetailViewer(){
 function playCrie(){
     document.getElementById('pokemonAudio').play();
 }
+
+//function getStats(pokemon){
+//    let hp = ((pokemon.stats[0].base_stat) / 255 * 100);
+//    document.getElementById('stat-bar-hp').style.width = hp+"%";
+//}

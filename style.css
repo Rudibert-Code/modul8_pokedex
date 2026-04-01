@@ -236,3 +236,10 @@ dialog::backdrop{
 .clickable{
     cursor: pointer;
 }
+
+.stat-bar{
+    height: 24px;
+    width: 244px;
+    background-color: #DB082D;
+    border-radius: 100px;
+}

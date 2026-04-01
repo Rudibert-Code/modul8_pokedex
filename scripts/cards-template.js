@@ -27,7 +27,9 @@ function detailViewerTemplate(pokemon){
         </section>
         <section class="detail-viewer-info-box">
             <section class="detail-viewer-info-selection"></section>
-            <section id="details"></section>
+            <section id="details">
+                <div class="stat-bar" id="stat-bar-hp">HP</div>
+            </section>
         </section>
     </section>`;
 }
