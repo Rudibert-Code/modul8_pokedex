@@ -24,8 +24,7 @@ async function renderList(){
         response = await fetch (pokedexData.results[i].url);
         pokemonDetails = await response.json(); 
         document.getElementById('main-container').innerHTML += cardTemplate(pokemonDetails);
-        getType(pokemonDetails); 
-        //getStats(pokemonDetails);    
+        getType(pokemonDetails);     
     }
     document.getElementById('next-min').innerHTML = offset + 1;
     document.getElementById('next-max').innerHTML = offset + renderLimit;
@@ -74,7 +73,36 @@ function playCrie(){
     document.getElementById('pokemonAudio').play();
 }
 
-//function getStats(pokemon){
-//    let hp = ((pokemon.stats[0].base_stat) / 255 * 100);
-//    document.getElementById('stat-bar-hp').style.width = hp+"%";
-//}
+
+// search suggestions
+// starting with 3rd entrie, look for include() among pokemon names in JSON
+// suggest options
+// select option - mouse click - transfare to input text
+// search button : open dialog window on selected pokemon 
+
+//document.getElementById("search-bar-input").addEventListener("keyup", renderSuggestions);
+
+function renderSuggestions(){
+    let inputID = document.getElementById('search-bar-input').value;
+    if (inputID.length >= 3) {
+        findSuggestions(inputID);
+    }
+}
+
+let nameSuggestions;
+
+async function findSuggestions(inputID){
+    console.clear();
+    let allData;
+    response = await fetch (`https://pokeapi.co/api/v2/pokemon?limit=1349&offset=0`);
+    allData = await response.json();
+    for (let i = 0; i < allData.results.length; i++) {
+        let nameSuggestions = allData.results[i].name;
+        let ergebnis = nameSuggestions.includes(inputID);
+        console.log(ergebnis);
+        if (ergebnis == true) {    
+                console.table(nameSuggestions);    
+
+        }   
+    }
+}

@@ -13,6 +13,12 @@
 <body onload="init()">
     <header>
         <section class="header-container">
+            <section class="search-bar">
+                <section class="search-bar-input">
+                    <input type="text" id="search-bar-input" onkeyup="renderSuggestions()">
+                </section>
+                <p class="search-bar-btn" onclick="">Search</p>
+            </section>
         </section>
         <nav></nav>
     </header>
@@ -24,8 +30,6 @@
         </section>
         <a class="pokemon-header btn-a" onclick="fetchData()"><p id="next-min"></p> - <p id="next-max"></p></a>
     </main>
-    <footer>
-        <section id="hp-bar"><p>HP</p></section>
-    </footer>
+    <footer></footer>
 </body>
 </html>
