@@ -11,11 +11,6 @@ function init(){
 async function fetchData(){
     showLoadingSpinner()  
     response = await fetch (`https://pokeapi.co/api/v2/pokemon?limit=${renderLimit}&offset=${offset}`);
-    
-    //if (offset == 0) {
-    //    pokedexData = await response.json(); 
-    //} else{
-    //}
 
     pokedexData = await response.json();
 
@@ -60,9 +55,8 @@ function getType(pokemon){
 }
 
 async function openDetailViewer(pokemonID){
-    pokemonID--
     detailViewer = [];
-    response = await fetch (pokedexData.results[pokemonID].url);
+    response = await fetch (`https://pokeapi.co/api/v2/pokemon/${pokemonID}`);
     detailViewer = await response.json(); 
     document.getElementById('detail-viewer').innerHTML = detailViewerTemplate(detailViewer);
     document.getElementById('pokemonAudio').src = detailViewer.cries.latest;
