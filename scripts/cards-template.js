@@ -19,21 +19,29 @@ function detailViewerTemplate(pokemon){
             <img class="hidden" src="./assets/icons/icon-end.png" id="block-list-start">
             <img class="" src="./assets/icons/icon-arrow.png" onclick="renderPrevious(${pokemon.id})" id="arrow-list-previous">
         </div>
+
         <section class="pokemon-detail-viewer bg-${pokemon.types[0].type.name}">
         <section class="pokemon-header detail-header">
             <p>${getNumber(pokemon.id)}</p>
             <h2>${pokemon.name}</h2>
-            <p class="clickable" onclick="closeDetailViewer()">X</p>
+            <p class="clickable on-hover" onclick="closeDetailViewer()">X</p>
         </section>
         <img class="detail-viewer-icon" src="./assets/icons/icon-sound.png" onclick="playCrie()">
         <section class="detail-viewer-canvas">
             <img class="detail-img" src="${pokemon.sprites.front_default}">
         </section>
         <section class="detail-viewer-info-box">
-            <section class="detail-viewer-info-selection"></section>
+            <section class="detail-viewer-info-selection">
+            <a>Attributes</a>
+            <p>|</p>
+            <a>Stats</a>
+            <p>|</p>
+            <a>Evolutions</a>
+            </section>
             <section id="details"></section>
         </section>
     </section>
+
     <div class="clickable">
         <img class="hidden" src="./assets/icons/icon-end.png" id="block-list-end">
         <img class="" src="./assets/icons/icon-arrow.png" onclick="renderNext(${pokemon.id})" id="arrow-list-next">

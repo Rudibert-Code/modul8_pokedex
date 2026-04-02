@@ -295,6 +295,10 @@ dialog::backdrop{
     cursor: pointer;
 }
 
+.on-hover:hover{
+    font-weight: bold;
+}
+
 .stat-bar{
     height: 24px;
     width: 244px;
@@ -304,4 +308,26 @@ dialog::backdrop{
 
 .flip-img{
 transform: scaleX(-1);
+}
+
+.detail-viewer-info-selection{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    gap: 16px;
+    background-image: linear-gradient(to bottom, #ffffff, rgb(195, 195, 195), rgb(209, 209, 209));
+    border-radius: 100px;
+    filter: drop-shadow(2px 3px 1px #2a232b60);
+    a{
+        font-size: 16px;
+        cursor: pointer;
+    }
+    a:hover{
+        font-weight: bold;
+    }
+    p{
+        font-size: 16px;
+    }
 }
