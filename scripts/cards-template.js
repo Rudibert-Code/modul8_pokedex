@@ -52,5 +52,7 @@ function detailViewerTemplate(pokemon){
 }
 
 function statBarTemplate(statName,statInfo){
-    return `<div class="stat-bar stat-high" id="stat-${statName}"> <p>${statName}</p> : <p>${statInfo}</p> </div>`;
+    return `<div class="stat-bar-max">
+    <div class="stat-bar stat-high" id="${statName}"> <p class="stat-title">${statName}</p><p>${statInfo}</p></div>
+    </div>`;
 }
