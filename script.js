@@ -69,6 +69,29 @@ async function openDetailViewer(pokemonID){
     listEnd(pokemonID);
     document.getElementById('detail-viewer').showModal();
     document.documentElement.classList.add("scroll-stopper");
+    renderStats(pokemonID);
+}
+
+async function renderStats(pokemonID){
+    for (let i = 0; i < 6; i++) {
+        //let targetID = "stat-" + i;
+        let statName = detailViewer.stats[i].stat.name;
+        let statInfo = detailViewer.stats[i].base_stat;
+        let barValue = (statInfo / 255 * 100).toFixed(0);
+        document.getElementById('pokemon-stats').innerHTML += statBarTemplate(statName,statInfo);
+        document.getElementById(targetID).style.width = barValue + "%";
+        colorBar(targetID, barValue);
+    }
+}
+
+function colorBar(targetID, barValue){
+        if (barValue >= 66 ) {
+            document.getElementById(targetID).classList.add("stat-high");
+        } else if(barValue <= 33 ){
+            document.getElementById(targetID).classList.add("stat-low");
+        } else{
+            document.getElementById(targetID).classList.add("stat-mid");
+        }
 }
 
 function renderNext(pokemonID){
@@ -104,6 +127,13 @@ function closeDetailViewer(){
 function playCrie(){
     document.getElementById('pokemonAudio').play();
 }
+
+
+
+
+
+
+
 
 // search suggestions
 // starting with 3rd entrie, look for include() among pokemon names in JSON

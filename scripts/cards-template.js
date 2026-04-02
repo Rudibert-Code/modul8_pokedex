@@ -31,14 +31,17 @@ function detailViewerTemplate(pokemon){
             <img class="detail-img" src="${pokemon.sprites.front_default}">
         </section>
         <section class="detail-viewer-info-box">
-            <section class="detail-viewer-info-selection">
+            <nav class="detail-viewer-info-selection">
             <a>Attributes</a>
             <p>|</p>
             <a>Stats</a>
             <p>|</p>
             <a>Evolutions</a>
+            </nav>
+            <section id="details">
+            <section class="stats-window" id="pokemon-stats">
             </section>
-            <section id="details"></section>
+            </section>
         </section>
     </section>
 
@@ -46,4 +49,8 @@ function detailViewerTemplate(pokemon){
         <img class="hidden" src="./assets/icons/icon-end.png" id="block-list-end">
         <img class="" src="./assets/icons/icon-arrow.png" onclick="renderNext(${pokemon.id})" id="arrow-list-next">
     </div>`;
+}
+
+function statBarTemplate(statName,statInfo){
+    return `<div class="stat-bar stat-high" id="stat-${statName}"> <p>${statName}</p> : <p>${statInfo}</p> </div>`;
 }
