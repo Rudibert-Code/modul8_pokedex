@@ -286,6 +286,11 @@ dialog::backdrop{
     filter: drop-shadow(0 0 16px #ffffff);
 }
 
+.detail-viewer-container{
+    display: flex;
+    align-items: center;
+}
+
 .clickable{
     cursor: pointer;
 }
@@ -295,4 +300,8 @@ dialog::backdrop{
     width: 244px;
     background-color: #DB082D;
     border-radius: 100px;
+}
+
+.flip-img{
+transform: scaleX(-1);
 }

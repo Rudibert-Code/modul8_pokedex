@@ -70,7 +70,21 @@ async function openDetailViewer(pokemonID){
     document.documentElement.classList.add("scroll-stopper");
 }
 
+function renderNext(pokemonID){
+    pokemonID++
+    if (pokemonID >= offset) {
+        fetchData();        
+    }
+    openDetailViewer(pokemonID);
+}
+
+function renderPrevious(pokemonID){
+    pokemonID--
+    openDetailViewer(pokemonID);
+}
+
 function closeDetailViewer(){
+    document.getElementById('detail-viewer').innerHTML = "";
     document.getElementById('detail-viewer').close();
     document.documentElement.classList.remove("scroll-stopper");
 }
@@ -78,7 +92,6 @@ function closeDetailViewer(){
 function playCrie(){
     document.getElementById('pokemonAudio').play();
 }
-
 
 // search suggestions
 // starting with 3rd entrie, look for include() among pokemon names in JSON

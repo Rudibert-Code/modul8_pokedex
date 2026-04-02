@@ -15,7 +15,10 @@ function cardTemplate(pokemon){
 }
 
 function detailViewerTemplate(pokemon){
-    return `<section class="pokemon-detail-viewer bg-${pokemon.types[0].type.name}">
+    return `<div class="flip-img clickable" onclick="renderPrevious(${pokemon.id})">
+            <img src="./assets/icons/icon-arrow.png">
+        </div>
+        <section class="pokemon-detail-viewer bg-${pokemon.types[0].type.name}">
         <section class="pokemon-header detail-header">
             <p>${getNumber(pokemon.id)}</p>
             <h2>${pokemon.name}</h2>
@@ -29,5 +32,8 @@ function detailViewerTemplate(pokemon){
             <section class="detail-viewer-info-selection"></section>
             <section id="details"></section>
         </section>
-    </section>`;
+    </section>
+    <div class="clickable" >
+        <img src="./assets/icons/icon-arrow.png" onclick="renderNext(${pokemon.id})">
+    </div>`;
 }
