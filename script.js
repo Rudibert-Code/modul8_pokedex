@@ -69,10 +69,11 @@ async function openDetailViewer(pokemonID){
     listEnd(pokemonID);
     document.getElementById('detail-viewer').showModal();
     document.documentElement.classList.add("scroll-stopper");
-    renderStats(pokemonID);
 }
 
 async function renderStats(pokemonID){
+    document.getElementById('pokemon-stats').innerHTML="";
+    document.getElementById('stats-title').classList.toggle("text-bold");
     for (let i = 0; i < 6; i++) {
         let statName = detailViewer.stats[i].stat.name;
         let statInfo = detailViewer.stats[i].base_stat;

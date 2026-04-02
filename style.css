@@ -270,8 +270,6 @@ dialog::backdrop{
 .detail-viewer-info-box{
     width: 100%;
     height: 320px;
-    background-color: rgba(0, 0, 0, 0.486);
-
 }
 
 .detail-viewer-icon{
@@ -325,6 +323,10 @@ transform: scaleX(-1);
     }
 }
 
+.text-bold{
+    font-weight: bold;
+}
+
 .stats-window{
     width: 100%;
     display: flex;
@@ -345,6 +347,7 @@ transform: scaleX(-1);
     margin-right: 16px;
     margin-top: 16px;
     border-radius: 100px;
+    border: 2px solid rgba(0, 0, 0, 0.541);
 }
 
 .stat-bar-max{

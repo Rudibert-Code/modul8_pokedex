@@ -34,7 +34,7 @@ function detailViewerTemplate(pokemon){
             <nav class="detail-viewer-info-selection">
             <a>Attributes</a>
             <p>|</p>
-            <a>Stats</a>
+            <a onclick="renderStats(${pokemon.id})" id="stats-title">Stats</a>
             <p>|</p>
             <a>Evolutions</a>
             </nav>
