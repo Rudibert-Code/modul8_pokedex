@@ -66,6 +66,7 @@ async function openDetailViewer(pokemonID){
     document.getElementById('detail-viewer').innerHTML = detailViewerTemplate(detailViewer);
     document.getElementById('pokemonAudio').src = detailViewer.cries.latest;
     document.getElementById('pokemonAudio').volume = 0.03;
+    listEnd(pokemonID);
     document.getElementById('detail-viewer').showModal();
     document.documentElement.classList.add("scroll-stopper");
 }
@@ -81,6 +82,17 @@ function renderNext(pokemonID){
 function renderPrevious(pokemonID){
     pokemonID--
     openDetailViewer(pokemonID);
+}
+
+function listEnd(pokemonID){
+    if (pokemonID <= 1) {
+        document.getElementById('block-list-start').classList.toggle("hidden");
+        document.getElementById('arrow-list-previous').classList.toggle("hidden");
+    }
+    if (pokemonID >= 151) {
+        document.getElementById('block-list-end').classList.toggle("hidden");
+        document.getElementById('arrow-list-next').classList.toggle("hidden");
+    }
 }
 
 function closeDetailViewer(){
