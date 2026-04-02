@@ -1,6 +1,7 @@
 let pokedexData = [];
 let pokemonDetails = [];
 let detailViewer = [];
+let previewLimiter = 0;
 let renderLimit = 20;
 let offset = 0;
 
@@ -20,11 +21,16 @@ async function fetchData(){
 
 async function renderList(){
     for (let i = 0; i < renderLimit; i++) {
+        if (previewLimiter == 151) {
+            closeLoadingScreen();
+            return
+        }
         pokemonDetails = [];
         response = await fetch (pokedexData.results[i].url);
         pokemonDetails = await response.json(); 
         document.getElementById('main-container').innerHTML += cardTemplate(pokemonDetails);
         getType(pokemonDetails);     
+        previewLimiter++
     }
     document.getElementById('next-min').innerHTML = offset + 1;
     document.getElementById('next-max').innerHTML = offset + renderLimit;
