@@ -75,6 +75,7 @@ async function renderStats(pokemonID){
     document.getElementById('pokemon-stats').innerHTML="";
     document.getElementById('stats-title').classList.toggle("text-bold");
     document.getElementById('attributes-title').classList.remove("text-bold");   
+    document.getElementById('evolution-title').classList.remove("text-bold");
     for (let i = 0; i < 6; i++) {
         let statName = detailViewer.stats[i].stat.name;
         let statInfo = detailViewer.stats[i].base_stat;
@@ -86,10 +87,53 @@ async function renderStats(pokemonID){
 }
 
 
-// pokemon attributes
+// pokemon evolutions
+// check base exp in both directions. when higher id drops in base-xp, evolution chain end. when lower id spikes in base-xp, evolution chain end.
+async function renderEvolution(pokemonID){
+    document.getElementById('pokemon-stats').innerHTML="";
+    document.getElementById('evolution-title').classList.toggle("text-bold");
+    document.getElementById('attributes-title').classList.remove("text-bold");
+    document.getElementById('stats-title').classList.remove("text-bold");
+    
+    // get base XP
+    let baseXP = detailViewer.base_experience;
+    let compXP = 0;
+    
+    // compare base XP with last pkmn until you reach a number increase, or i = 0
+    for (let i = 4; i = 0; i--) {
+        pokemonID--
+        response = await fetch (`https://pokeapi.co/api/v2/pokemon/${pokemonID}`);
+        let prevEvo = await response.json();
+        compXP = prevEvo.base_experience;
+        if (compXP <= baseX) {
+            console.log(prevEvo.name + "is part of the evo-chain")
+        }
+        else{
+            return
+        }
+    }
+
+    // compare base XP with last pkmn until you reach a number increase, or i = 0
+    for (let i = 0; i = 4; i++) {
+        pokemonID++
+        response = await fetch (`https://pokeapi.co/api/v2/pokemon/${pokemonID}`);
+        let nextEvo = await response.json();
+        compXP = nextEvo.base_experience;
+        if (compXP >= baseXP) {
+            console.log(nextEvo.name + "is part of the evo-chain")
+        }
+        else{
+            return
+        }
+    }
+}
+
+
+// pokemon attributes 
 async function renderAttributes(pokemonID){
     document.getElementById('pokemon-stats').innerHTML="";
     document.getElementById('attributes-title').classList.toggle("text-bold");
+    document.getElementById('evolution-title').classList.remove("text-bold");
     document.getElementById('stats-title').classList.remove("text-bold");
     let pokemonHeight = detailViewer.height;
     let displayHeight = "Height: " + (pokemonHeight / 10) + "m";
@@ -99,6 +143,7 @@ async function renderAttributes(pokemonID){
     <div><p>${displayWeight}</p></div>
     `;
 }
+
 
 
 function colorBar(targetID, barValue){
