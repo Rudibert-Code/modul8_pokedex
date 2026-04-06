@@ -32,7 +32,7 @@ function detailViewerTemplate(pokemon){
         </section>
         <section class="detail-viewer-info-box">
             <nav class="detail-viewer-info-selection">
-                <a oncklick="renderAttributes(${pokemon.id})" id="attributes-title">Attributes</a>
+                <a onclick="renderAttributes(${pokemon.id})" id="attributes-title">Attributes</a>
                 <p>|</p>
                 <a onclick="renderStats(${pokemon.id})" id="stats-title">Stats</a>
                 <p>|</p>

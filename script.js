@@ -74,6 +74,7 @@ async function openDetailViewer(pokemonID){
 async function renderStats(pokemonID){
     document.getElementById('pokemon-stats').innerHTML="";
     document.getElementById('stats-title').classList.toggle("text-bold");
+    document.getElementById('attributes-title').classList.remove("text-bold");   
     for (let i = 0; i < 6; i++) {
         let statName = detailViewer.stats[i].stat.name;
         let statInfo = detailViewer.stats[i].base_stat;
@@ -89,17 +90,14 @@ async function renderStats(pokemonID){
 async function renderAttributes(pokemonID){
     document.getElementById('pokemon-stats').innerHTML="";
     document.getElementById('attributes-title').classList.toggle("text-bold");
-   
-    let pokemonHeight = detailViewer.stats[i].height;
+    document.getElementById('stats-title').classList.remove("text-bold");
+    let pokemonHeight = detailViewer.height;
     let displayHeight = "Height: " + (pokemonHeight / 10) + "m";
-    let pokemonWeight = detailViewer.stats[i].weight;
+    let pokemonWeight = detailViewer.weight;
     let displayWeight = "Weight: " + (pokemonWeight / 10) + "kg";
-
-    console.log(displayHeight, displayWeight);
-
-    //document.getElementById('pokemon-stats').innerHTML=`<div><p>${displayHeight}</p></div>
-    //<div><p>${displayWeight}</p></div>
-    //`;
+    document.getElementById('pokemon-stats').innerHTML=`<div><p>${displayHeight}</p></div>
+    <div><p>${displayWeight}</p></div>
+    `;
 }
 
 
