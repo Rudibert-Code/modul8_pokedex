@@ -84,6 +84,25 @@ async function renderStats(pokemonID){
     }
 }
 
+
+// pokemon attributes
+async function renderAttributes(pokemonID){
+    document.getElementById('pokemon-stats').innerHTML="";
+    document.getElementById('attributes-title').classList.toggle("text-bold");
+   
+    let pokemonHeight = detailViewer.stats[i].height;
+    let displayHeight = "Height: " + (pokemonHeight / 10) + "m";
+    let pokemonWeight = detailViewer.stats[i].weight;
+    let displayWeight = "Weight: " + (pokemonWeight / 10) + "kg";
+
+    console.log(displayHeight, displayWeight);
+
+    //document.getElementById('pokemon-stats').innerHTML=`<div><p>${displayHeight}</p></div>
+    //<div><p>${displayWeight}</p></div>
+    //`;
+}
+
+
 function colorBar(targetID, barValue){
         if (barValue >= 99 ) {
             document.getElementById(targetID).classList.add("stat-high");
