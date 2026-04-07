@@ -89,16 +89,16 @@ async function renderStats(pokemonID){
 
 
 
-// pokemon evolutions
-// check base exp in both directions. when higher id drops in base-xp, evolution chain end. when lower id spikes in base-xp, evolution chain end.
+
 async function renderEvolution(pokemonID){
     document.getElementById('pokemon-stats').innerHTML="";
     document.getElementById('evolution-title').classList.toggle("text-bold");
     document.getElementById('attributes-title').classList.remove("text-bold");
     document.getElementById('stats-title').classList.remove("text-bold");
     let baseXP = detailViewer.base_experience;
-    compNextXP(pokemonID, baseXP);
     compPreviousXP(pokemonID, baseXP);
+    document.getElementById('pokemon-stats').innerHTML += `<img class="detail-img evo-chain-img" src="${detailViewer.sprites.front_default}"><p>Next Evolution</p>`;
+    compNextXP(pokemonID, baseXP);
 }
 
 
@@ -112,8 +112,9 @@ async function compNextXP(pokemonID, compXP){
         let pokemonJSON = await response.json();
         let currentXP = pokemonJSON.base_experience;
         let currentName = pokemonJSON.name;
-        if (currentXP > lastXP) {
-            console.log(currentName + " is part of the evolution chain");
+        if (currentXP >= lastXP) {
+            document.getElementById('pokemon-stats').innerHTML += `<img class="detail-img evo-chain-img" src="${pokemonJSON.sprites.front_default}"><p>Next Evolution</p>`;
+            //console.log(currentName + " is part of the evolution chain");
             lastXP = currentXP;
         } else{
             return
@@ -135,8 +136,9 @@ async function compPreviousXP(pokemonID, compXP){
         let pokemonJSON = await response.json();
         let currentXP = pokemonJSON.base_experience;
         let currentName = pokemonJSON.name;
-        if (currentXP < prevXP) {
-            console.log(currentName + " is part of the evolution chain");
+        if (currentXP <= prevXP) {
+            document.getElementById('pokemon-stats').innerHTML += `<img class="detail-img evo-chain-img" src="${pokemonJSON.sprites.front_default}"><p>Previous Evolution</p>`;
+            //console.log(currentName + " is part of the evolution chain");
             prevXP = currentXP;
         } else{
             return

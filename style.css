@@ -248,6 +248,10 @@ dialog::backdrop{
     width: 400px;
 }
 
+.evo-chain-img{
+    width: 140px;
+}
+
 .detail-viewer-canvas{
     display: flex;
     justify-content: center;
