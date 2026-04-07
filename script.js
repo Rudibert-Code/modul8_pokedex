@@ -107,11 +107,11 @@ async function renderEvolution(pokemonID){
         let currentXP = pokemonJSON.base_experience;
 
         if (currentXP > compXP) {
-            console.log(pokemonID + "is part of the evolution chain")
+            console.log(pokemonID + " is part of the evolution chain")
         } else{
             return
         }
-        
+
     }
 }
 
