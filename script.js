@@ -87,6 +87,8 @@ async function renderStats(pokemonID){
 }
 
 
+
+
 // pokemon evolutions
 // check base exp in both directions. when higher id drops in base-xp, evolution chain end. when lower id spikes in base-xp, evolution chain end.
 async function renderEvolution(pokemonID){
@@ -94,26 +96,55 @@ async function renderEvolution(pokemonID){
     document.getElementById('evolution-title').classList.toggle("text-bold");
     document.getElementById('attributes-title').classList.remove("text-bold");
     document.getElementById('stats-title').classList.remove("text-bold");
-    
-    // get base XP
     let baseXP = detailViewer.base_experience;
-    let compXP = baseXP;
+    compNextXP(pokemonID, baseXP);
+    compPreviousXP(pokemonID, baseXP);
+}
 
-    // compare baseXP with XP of the following pokemon. when value stops increasing, end oc evolution chain is reached.
+
+// compare baseXP with XP of the following pokemon. when value stops increasing, end evolution chain is reached.
+async function compNextXP(pokemonID, compXP){
+    let lastXP = compXP;
+
     for (let i = 0; i < 3; i++) {
         pokemonID++
         response = await fetch (`https://pokeapi.co/api/v2/pokemon/${pokemonID}`);
         let pokemonJSON = await response.json();
         let currentXP = pokemonJSON.base_experience;
-
-        if (currentXP > compXP) {
-            console.log(pokemonID + " is part of the evolution chain")
+        let currentName = pokemonJSON.name;
+        if (currentXP > lastXP) {
+            console.log(currentName + " is part of the evolution chain");
+            lastXP = currentXP;
         } else{
             return
         }
-
     }
 }
+
+
+// compare baseXP with XP of the previous pokemon. when value stops decreasing, end evolution chain is reached.
+async function compPreviousXP(pokemonID, compXP){
+    let prevXP = compXP;
+
+    for (let i = 3; i > 0; i--) {
+        pokemonID--
+        if (pokemonID == 0) {
+            return
+        }
+        response = await fetch (`https://pokeapi.co/api/v2/pokemon/${pokemonID}`);
+        let pokemonJSON = await response.json();
+        let currentXP = pokemonJSON.base_experience;
+        let currentName = pokemonJSON.name;
+        if (currentXP < prevXP) {
+            console.log(currentName + " is part of the evolution chain");
+            prevXP = currentXP;
+        } else{
+            return
+        }
+    }
+}
+
+
 
 
 // pokemon attributes 
