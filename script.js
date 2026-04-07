@@ -97,34 +97,21 @@ async function renderEvolution(pokemonID){
     
     // get base XP
     let baseXP = detailViewer.base_experience;
-    let compXP = 0;
-    
-    // compare base XP with last pkmn until you reach a number increase, or i = 0
-    for (let i = 4; i = 0; i--) {
-        pokemonID--
-        response = await fetch (`https://pokeapi.co/api/v2/pokemon/${pokemonID}`);
-        let prevEvo = await response.json();
-        compXP = prevEvo.base_experience;
-        if (compXP <= baseX) {
-            console.log(prevEvo.name + "is part of the evo-chain")
-        }
-        else{
-            return
-        }
-    }
+    let compXP = baseXP;
 
-    // compare base XP with last pkmn until you reach a number increase, or i = 0
-    for (let i = 0; i = 4; i++) {
+    // compare baseXP with XP of the following pokemon. when value stops increasing, end oc evolution chain is reached.
+    for (let i = 0; i < 3; i++) {
         pokemonID++
         response = await fetch (`https://pokeapi.co/api/v2/pokemon/${pokemonID}`);
-        let nextEvo = await response.json();
-        compXP = nextEvo.base_experience;
-        if (compXP >= baseXP) {
-            console.log(nextEvo.name + "is part of the evo-chain")
-        }
-        else{
+        let pokemonJSON = await response.json();
+        let currentXP = pokemonJSON.base_experience;
+
+        if (currentXP > compXP) {
+            console.log(pokemonID + "is part of the evolution chain")
+        } else{
             return
         }
+        
     }
 }
 
