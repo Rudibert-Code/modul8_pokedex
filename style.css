@@ -381,3 +381,25 @@ transform: scaleX(-1);
 .stat-low{
     background-color: #DB082D;
 }
+
+.attribute-box{
+    width: 425px;
+    height: 270px;
+    margin: 16px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    background-image: linear-gradient(to bottom, #ffffff, rgb(195, 195, 195), rgb(209, 209, 209));
+    outline: solid rgba(0, 0, 0, 0.325) 2px;
+    p{
+        padding-inline: 16px;
+        padding-top: 16px;
+        padding-bottom: 8px;
+    }
+    span{
+        font-size: 16px;
+        padding: 16px;
+    }
+}

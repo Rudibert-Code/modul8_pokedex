@@ -19,7 +19,6 @@ function detailViewerTemplate(pokemon){
             <img class="hidden" src="./assets/icons/icon-end.png" id="block-list-start">
             <img class="" src="./assets/icons/icon-arrow.png" onclick="renderPrevious(${pokemon.id})" id="arrow-list-previous">
         </div>
-
         <section class="pokemon-detail-viewer bg-${pokemon.types[0].type.name}">
         <section class="pokemon-header detail-header">
             <p>${getNumber(pokemon.id)}</p>
@@ -35,8 +34,6 @@ function detailViewerTemplate(pokemon){
                 <a onclick="renderAttributes(${pokemon.id})" id="attributes-title">Attributes</a>
                 <p>|</p>
                 <a onclick="renderStats(${pokemon.id})" id="stats-title">Stats</a>
-                <p>|</p>
-                <a onclick="renderEvolution(${pokemon.id})" id="evolution-title">Evolutions</a>
             </nav>
             <section id="details">
                 <section class="stats-window" id="pokemon-stats">
@@ -44,7 +41,6 @@ function detailViewerTemplate(pokemon){
             </section>
         </section>
     </section>
-
     <div class="clickable">
         <img class="hidden" src="./assets/icons/icon-end.png" id="block-list-end">
         <img class="" src="./assets/icons/icon-arrow.png" onclick="renderNext(${pokemon.id})" id="arrow-list-next">
