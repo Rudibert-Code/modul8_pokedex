@@ -68,6 +68,7 @@ async function openDetailViewer(pokemonID){
     document.getElementById('pokemonAudio').volume = 0.03;
     listEnd(pokemonID);
     renderAttributes(pokemonID);
+    renderEvolution(pokemonID);
     document.getElementById('detail-viewer').showModal();
     document.documentElement.classList.add("scroll-stopper");
 }
@@ -86,7 +87,22 @@ async function renderStats(){
     }
 }
 
-
+async function renderEvolution(pokemonID){
+    let prevXP = detailViewer.base_experience;
+        pokemonID--
+        if (pokemonID <= 0) {
+            return
+        }
+        response = await fetch (`https://pokeapi.co/api/v2/pokemon/${pokemonID}`);
+        let pokemonJSON = await response.json();
+        let currentXP = pokemonJSON.base_experience;
+        if (currentXP <= prevXP) {
+            document.getElementById('previousEvolution').innerHTML = `<img class="evo-chain-img" src="${pokemonJSON.sprites.front_default}">`;
+            prevXP = currentXP;
+        } else{
+            return
+        }
+}
 
 //let evolutionChain = [];
 //
@@ -145,9 +161,6 @@ async function renderStats(){
 //        document.getElementById('pokemon-stats').innerHTML += `<img class="detail-img evo-chain-img" src="${evolutionChain[i]}">`;
 //    }
 //}
-
-
-
 
 async function renderAttributes(pokemonID){
     document.getElementById('pokemon-stats').innerHTML="";
@@ -208,21 +221,6 @@ function closeDetailViewer(){
 function playCrie(){
     document.getElementById('pokemonAudio').play();
 }
-
-
-
-
-
-
-
-
-// search suggestions
-// starting with 3rd entrie, look for include() among pokemon names in JSON
-// suggest options
-// select option - mouse click - transfare to input text
-// search button : open dialog window on selected pokemon 
-
-//document.getElementById("search-bar-input").addEventListener("keyup", renderSuggestions);
 
 function renderSuggestions(){
     let inputID = document.getElementById('search-bar-input').value;

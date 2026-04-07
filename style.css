@@ -403,3 +403,9 @@ transform: scaleX(-1);
         padding: 16px;
     }
 }
+
+.evolution-chain-img{
+    position: absolute;
+    top: 48px;
+    left: 8px;
+}
