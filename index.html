@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokédex</title>
+    <link rel="icon" type="image" href="./assets/icons/pokeballicon.png">
     <script src="./script.js"></script>
     <script src="./scripts/cards-template.js"></script>
     <script src="./scripts/loading-bar.js"></script>
@@ -13,14 +14,18 @@
 <body onload="init()">
     <header>
         <section class="header-container">
-            <section class="search-bar">
-                <dialog open class="suggestions-dialog" id="search-suggestions"></dialog>
+            <div class="title">
+                <img class="title-img" src="./assets/icons/pokeballicon.png">
+                <h1>Pokédex</h1>
+            </div>
+        </section>
+            <section class="search-bar" id="search-bar-container">
                 <section class="search-bar-input">
                     <input type="text" id="search-bar-input" onkeyup="getSuggestions()">
+                    <dialog class="suggestions-dialog" id="search-suggestions"></dialog>
                 </section>
-                <p class="search-bar-btn" onclick="searchPokemon()">Search</p>
+                <img src="./assets/icons/icon-search.png" class="search-bar-btn search-bar-icon" onclick="searchPokemon()">
             </section>
-        </section>
         <nav></nav>
     </header>
     <main>
@@ -32,6 +37,8 @@
         </section>
         <a class="pokemon-header btn-a" onclick="fetchData()"><p id="next-min"></p> - <p id="next-max"></p></a>
     </main>
-    <footer></footer>
+    <footer>
+        <img src="./assets/icons/logo-dev.png">
+    </footer>
 </body>
 </html>

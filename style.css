@@ -11,8 +11,30 @@ html{
 header{
     width: 100%;
     height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #DB082D;
     filter: drop-shadow(0 4px 2px rgba(55, 3, 58, 0.671));;
+}
+
+.title{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 16px;
+    margin-left: 32px;
+}
+
+h1{
+    font-size: 100px;
+    font-weight: bold;
+    color: #ffe658;
+    filter: drop-shadow( 5px 8px 0 #0a86d3);
+}
+
+.title-img{
+    width: 124px;
 }
 
 .header-container{
@@ -20,7 +42,7 @@ header{
     max-width: 1440px;
     height: 100%;
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -28,7 +50,8 @@ input{
     background-color: black;
     border-style: none;
     outline: none;
-    border-radius: 8px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
     padding: 12px 8px;
     color: white;
 }
@@ -52,35 +75,56 @@ input{
 }
 
 .suggestions-dialog{
-    position: sticky;
-    top: 0;
-    right: 0;
-    z-index: 10;
-    width: 185px;
-    height: 39px;
+    position: relative;
+    width: 168px;
+    height: auto;
     background-color: black;
     border-style: none;
     outline: none;
-    border-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
     padding: 12px 8px;
+    margin: 0;
     color: white;
 }
 
 .search-bar{
+    position: absolute;
+    top: 54px;
+    left: calc(100% - 275px);
     display: flex;
-    align-items: center;
-    gap: 16px;
+    align-items: start;
+    margin-top: 42px;
+    margin-right: 32px;
+}
+
+@media(min-width: 1441px){
+    .search-bar{
+        left: calc(50% + 420px);
+    }
 }
 
 .search-bar-btn{
     cursor: pointer;
     background-color: #2AAAF8;
     padding: 0 32px;
-    border-radius: 8px;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
 }
 
 .search-bar-btn:hover{
     background-color: #2cd1ff;
+}
+
+.search-bar-icon{
+    height: 26px;
+    padding: 6px 16px
+}
+
+.evolution-chain-img{
+    position: absolute;
+    top: 48px;
+    left: 0;
 }
 
 body{
@@ -100,6 +144,7 @@ main{
 
 .main-container{
     width: 100%;
+    max-width: 1440px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -200,6 +245,9 @@ p{
 footer{
     width: 100%;
     height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #DB082D;
     filter: drop-shadow(0 -4px 2px rgba(55, 3, 58, 0.671));;
 }
@@ -417,10 +465,4 @@ transform: scaleX(-1);
         font-size: 16px;
         padding: 16px;
     }
-}
-
-.evolution-chain-img{
-    position: absolute;
-    top: 48px;
-    left: 8px;
 }

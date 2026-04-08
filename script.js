@@ -193,9 +193,11 @@ function playCrie(){
 function getSuggestions(){
     let inputID = document.getElementById('search-bar-input').value;
     if (inputID.length >= 3) {
+        document.getElementById('search-suggestions').open = true;
         findSuggestions(inputID);
     }
         if (inputID.length < 3) {
+        document.getElementById('search-suggestions').open = false;
         document.getElementById('search-suggestions').innerHTML = "";
     }
 }
@@ -203,7 +205,7 @@ function getSuggestions(){
 let nameSuggestions;
 
 async function findSuggestions(inputID){
-    //document.getElementById('search-suggestions').innerHTML = "";
+    document.getElementById('search-suggestions').innerHTML = "";
     let allData;
     response = await fetch (`https://pokeapi.co/api/v2/pokemon?limit=151&offset=0`);
     allData = await response.json();
@@ -225,6 +227,7 @@ function addSuggestion(suggestionID){
     let newSuggestion = document.getElementById("suggestion-" + suggestionID).innerHTML;
     document.getElementById('search-bar-input').value = newSuggestion;
     document.getElementById('search-suggestions').innerHTML = "";
+    document.getElementById('search-suggestions').open = false;
 }
 
 async function searchPokemon(){
@@ -234,6 +237,7 @@ async function searchPokemon(){
     if (tempArray.id > offset) {
         console.log("Pokemon not found among loaded elements")
     } else{
+        document.getElementById('search-bar-input').value = "";
         openDetailViewer(tempArray.id);
     }
 }
