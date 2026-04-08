@@ -30,6 +30,12 @@
     </header>
     <main>
         <audio id="pokemonAudio"></audio>
+        <dialog id="error-message">
+            <div class="error-message-dialog">
+                <P class="error-message-text">This Pokémon is not amog the list loaded.</P>
+                <a class="pokemon-header btn-a" onclick="fetchData()"><p id="error-next-min"></p> - <p id="error-next-max"></p></a>
+            </div>
+        </dialog>
         <dialog class="loading-icon" id="loading"></dialog>
         <dialog class="detail-viewer-container" id="detail-viewer">
         </dialog>

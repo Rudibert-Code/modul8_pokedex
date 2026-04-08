@@ -12,11 +12,10 @@ function init(){
 async function fetchData(){
     showLoadingSpinner()  
     response = await fetch (`https://pokeapi.co/api/v2/pokemon?limit=${renderLimit}&offset=${offset}`);
-
     pokedexData = await response.json();
-
     offset += renderLimit;
     renderList();
+    document.getElementById('error-message').close();
 }
 
 async function renderList(){
@@ -197,6 +196,7 @@ function getSuggestions(){
         findSuggestions(inputID);
     }
         if (inputID.length < 3) {
+        numberOfSuggestions = 0
         document.getElementById('search-suggestions').open = false;
         document.getElementById('search-suggestions').innerHTML = "";
     }
@@ -219,8 +219,15 @@ async function findSuggestions(inputID){
     }
 }
 
+let numberOfSuggestions = 0;
+
 function renderSuggestions(nameSuggestions, suggestionID){
-    document.getElementById('search-suggestions').innerHTML += `<a class="clickable" onclick="addSuggestion(${suggestionID})" id="suggestion-${suggestionID}">${nameSuggestions}</a><br>`;
+    if (numberOfSuggestions == 3) {
+        return
+    } else{
+        document.getElementById('search-suggestions').innerHTML += `<a class="suggestion-text clickable" onclick="addSuggestion(${suggestionID})" id="suggestion-${suggestionID}">${nameSuggestions}</a><br>`;
+        numberOfSuggestions++
+    }
 }
 
 function addSuggestion(suggestionID){
@@ -235,7 +242,10 @@ async function searchPokemon(){
     response = await fetch (`https://pokeapi.co/api/v2/pokemon/${searchName}`);
     let tempArray = await response.json();
     if (tempArray.id > offset) {
-        console.log("Pokemon not found among loaded elements")
+        document.getElementById('error-message').showModal();
+        document.documentElement.classList.add("scroll-stopper");
+        document.getElementById('error-next-min').innerHTML = offset + 1;
+        document.getElementById('error-next-max').innerHTML = offset + renderLimit;
     } else{
         document.getElementById('search-bar-input').value = "";
         openDetailViewer(tempArray.id);

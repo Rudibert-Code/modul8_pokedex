@@ -56,6 +56,18 @@ input{
     color: white;
 }
 
+.input-suggestion-active{
+    border-bottom-left-radius: 0;
+}
+
+.suggestion-text{
+    color: rgb(203, 203, 203);
+}
+
+.suggestion-text:hover{
+    color: rgb(255, 255, 255);
+}
+
 .search-bar-input{
     display: flex;
     flex-direction: column;
@@ -81,14 +93,15 @@ input{
     background-color: black;
     border-style: none;
     outline: none;
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
+    border-radius: 8px;
     padding: 12px 8px;
+    padding-top: 0;
     margin: 0;
     color: white;
 }
 
 .search-bar{
+    z-index: +1;
     position: absolute;
     top: 54px;
     left: calc(100% - 275px);
@@ -465,4 +478,18 @@ transform: scaleX(-1);
         font-size: 16px;
         padding: 16px;
     }
+}
+
+.error-message-text{
+    font-size: 42px;
+    font-weight: bold;
+    color: white;
+}
+
+.error-message-dialog{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
 }
