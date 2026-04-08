@@ -15,7 +15,7 @@ function cardTemplate(pokemon){
 }
 
 function detailViewerTemplate(pokemon){
-    return `<div class="flip-img clickable">
+    return `<div class="arrow flip-img clickable">
             <img class="hidden" src="./assets/icons/icon-end.png" id="block-list-start">
             <img class="" src="./assets/icons/icon-arrow.png" onclick="renderPrevious(${pokemon.id})" id="arrow-list-previous">
         </div>
@@ -44,7 +44,7 @@ function detailViewerTemplate(pokemon){
             </section>
         </section>
     </section>
-    <div class="clickable">
+    <div class="arrow clickable">
         <img class="hidden" src="./assets/icons/icon-end.png" id="block-list-end">
         <img class="" src="./assets/icons/icon-arrow.png" onclick="renderNext(${pokemon.id})" id="arrow-list-next">
     </div>`;
