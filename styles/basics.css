@@ -1,0 +1,76 @@
+
+html{
+    font-family: "Palanquin";
+    font-size: 16px;
+}
+
+header{
+    width: 100%;
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #DB082D;
+    filter: drop-shadow(0 4px 2px rgba(55, 3, 58, 0.671));;
+}
+
+input{
+    background-color: black;
+    border-style: none;
+    outline: none;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    padding: 12px 8px;
+    color: white;
+}
+
+body{
+    margin: 0;
+    background-color: #2AAAF8;
+}
+
+main{
+    flex: 1;
+    margin: 64px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 64px;
+}
+
+h2{
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: capitalize;
+    padding: 0;
+    margin: 0;
+}
+
+p{
+    font-size: 24px;
+    padding: 0;
+    margin: 0;
+}
+
+footer{
+    width: 100%;
+    height: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #DB082D;
+    filter: drop-shadow(0 -4px 2px rgba(55, 3, 58, 0.671));;
+}
+
+dialog{
+    border: none;
+    outline-style: none;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+dialog::backdrop{
+    background-color: black;
+    opacity: 0.66;
+}

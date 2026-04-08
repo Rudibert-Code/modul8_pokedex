@@ -3,19 +3,11 @@
     src: url(./assets/font/Palanquin-Regular.ttf);
 }
 
-html{
-    font-family: "Palanquin";
-    font-size: 16px;
-}
-
-header{
-    width: 100%;
-    height: 160px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #DB082D;
-    filter: drop-shadow(0 4px 2px rgba(55, 3, 58, 0.671));;
+h1{
+    font-size: 100px;
+    font-weight: bold;
+    color: #ffe658;
+    filter: drop-shadow( 5px 8px 0 #0a86d3);
 }
 
 .title{
@@ -24,13 +16,6 @@ header{
     align-items: center;
     gap: 16px;
     margin-left: 32px;
-}
-
-h1{
-    font-size: 100px;
-    font-weight: bold;
-    color: #ffe658;
-    filter: drop-shadow( 5px 8px 0 #0a86d3);
 }
 
 .title-img{
@@ -44,16 +29,6 @@ h1{
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-input{
-    background-color: black;
-    border-style: none;
-    outline: none;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
-    padding: 12px 8px;
-    color: white;
 }
 
 .input-suggestion-active{
@@ -134,21 +109,6 @@ input{
     left: 0;
 }
 
-body{
-    margin: 0;
-    background-color: #2AAAF8;
-}
-
-main{
-    flex: 1;
-    margin: 64px 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 64px;
-}
-
 .main-container{
     width: 100%;
     max-width: 1440px;
@@ -190,20 +150,6 @@ main{
     background-image: linear-gradient(to bottom, #ffffff, rgb(195, 195, 195), rgb(209, 209, 209));
     border-radius: 100px;
     filter: drop-shadow(2px 3px 1px #2a232b60);
-}
-
-h2{
-    font-size: 24px;
-    font-weight: bold;
-    text-transform: capitalize;
-    padding: 0;
-    margin: 0;
-}
-
-p{
-    font-size: 24px;
-    padding: 0;
-    margin: 0;
 }
 
 .pokemon-canvas{
@@ -249,344 +195,5 @@ p{
     display: none;
 }
 
-footer{
-    width: 100%;
-    height: 160px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #DB082D;
-    filter: drop-shadow(0 -4px 2px rgba(55, 3, 58, 0.671));;
-}
 
-dialog{
-    border: none;
-    outline-style: none;
-    padding: 0;
-    background-color: rgba(0, 0, 0, 0);
-}
 
-dialog::backdrop{
-    background-color: black;
-    opacity: 0.66;
-}
-
-.scroll-stopper{
-    overflow-y: hidden;
-}
-
-.loading-icon {
-    opacity: 50%;
-    background-image: url(./assets/img/icon_p-ball.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 320px;
-    height: 320px;
-    animation: spin 4s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-.pokemon-detail-viewer{
-    width: 460px;
-    height: 640px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    padding: 8px;
-    margin: 24px 16px;
-    background-color: #ffffff00;
-    border-radius: 16px;
-    border-style: solid;
-    border-width: 8px;
-    border-color: #FFE658;
-    filter: drop-shadow(8px 12px 4px #2a232b60);
-}
-
-.detail-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-inline: 16px;
-}
-
-.detail-img{
-    width: 400px;
-}
-
-.evo-chain-img{
-    width: 140px;
-}
-
-.detail-viewer-canvas{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    object-fit: cover;
-    background-image: url(./assets/img/icon_p-ball.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-
-.detail-viewer-types{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 32px;
-}
-
-.detail-viewer-info-box{
-    width: 100%;
-    height: 320px;
-}
-
-.detail-viewer-icon{
-    width: 48px;
-    position: absolute;
-    top: 260px;
-    left: 400px;
-    cursor: pointer;
-}
-
-.detail-viewer-icon:hover{
-    filter: drop-shadow(0 0 16px #ffffff);
-}
-
-.detail-viewer-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.clickable{
-    cursor: pointer;
-}
-
-.on-hover:hover{
-    font-weight: bold;
-}
-
-.flip-img{
-transform: scaleX(-1);
-}
-
-.detail-viewer-info-selection{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    gap: 16px;
-    background-image: linear-gradient(to bottom, #ffffff, rgb(195, 195, 195), rgb(209, 209, 209));
-    border-radius: 100px;
-    filter: drop-shadow(2px 3px 1px #2a232b60);
-    a{
-        font-size: 16px;
-        cursor: pointer;
-    }
-    a:hover{
-        font-weight: bold;
-    }
-    p{
-        font-size: 16px;
-    }
-}
-
-.text-bold{
-    font-weight: bold;
-}
-
-.stats-window{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-}
-
-.stat-bar{
-    max-width: 396px;
-    height: 20px;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    text-transform: capitalize;
-    gap: 16px;
-    padding: 4px 16px;
-    margin-right: 16px;
-    margin-top: 16px;
-    border-radius: 100px;
-    border: 2px solid rgba(0, 0, 0, 0.541);
-}
-
-.stat-bar-max{
-    width: 425px;
-    height: 28px;
-    margin-left: 16px;
-    margin-top: 16px;
-    border-radius: 100px;
-    display: flex;
-    justify-content: start;
-    align-items: end;
-    background-color: #00000064;
-}
-
-.stat-title{
-    font-size: 16px;
-}
-
-.stat-high{
-    background-color: #16db08;
-}
-
-.stat-mid{
-    background-color: #dbc908;
-}
-
-.stat-low{
-    background-color: #DB082D;
-}
-
-.attribute-box{
-    width: 425px;
-    height: 240px;
-    margin: 16px;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
-    background-image: linear-gradient(to bottom, #eaeaea, rgb(214, 214, 214), rgb(222, 222, 222));
-    outline: solid rgba(0, 0, 0, 0.325) 2px;
-    p{
-        padding-inline: 16px;
-        padding-top: 16px;
-        padding-bottom: 8px;
-    }
-    span{
-        font-size: 16px;
-        padding: 16px;
-    }
-}
-
-.error-message-text{
-    font-size: 42px;
-    font-weight: bold;
-    color: white;
-}
-
-.error-message-dialog{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    gap: 32px;
-}
-
-.arrows-detailviewer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 32px;
-}
-
-.arrow-normal{
-    display: flex;
-}
-
-.arrow-small{
-    display: none;
-}
-
-@media(min-width: 1441px){
-    .search-bar{
-        left: calc(50% + 420px);
-    }
-}
-
-@media(max-width: 910px){
-    header{
-        height: 200px;
-    }
-    .header-container {
-        display: flex;
-        justify-content: center;
-        align-items: end;
-    }
-    .title {
-        margin: 0;
-    }
-    .title-img{
-        width: 88px;
-    }
-    h1{
-        font-size: 72px;
-
-    }
-    .search-bar {
-        top: 110px;
-        left: calc(50% - 120px);
-    }
-}
-
-@media(max-width: 720px){
-    .detail-viewer-canvas {
-    min-width: 180px;
-    }
-    .pokemon-detail-viewer{
-        width: 70%;
-    }
-    .attribute-box{
-        width: 90%;
-        height: 100%;
-        max-height: 284px;
-        p{
-            font-size: 16px;
-        }
-    }
-    .detail-viewer-icon {
-        width: 40px;
-        position: relative;
-        top: calc(50% - 120px);
-        left: calc(50% - 30px);
-    }
-    .evo-chain-img {
-        display: none;
-    }
-}
-
-@media(max-width: 664px){
-    .detail-viewer-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    }
-    .arrow-normal{
-        display: none;
-    }
-    .arrow-small{
-        display: flex;
-    }
-}
-
-@media(max-width: 440px){
-    .title {
-        margin-bottom: 40px;
-        gap: 8px;
-    }
-    .title-img{
-        width: 72px;
-    }
-    h1{
-        font-size: 50px;
-
-    }
-}

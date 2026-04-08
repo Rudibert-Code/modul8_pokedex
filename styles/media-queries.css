@@ -1,0 +1,84 @@
+@media(min-width: 1441px){
+    .search-bar{
+        left: calc(50% + 420px);
+    }
+}
+
+@media(max-width: 910px){
+    header{
+        height: 200px;
+    }
+    .header-container {
+        display: flex;
+        justify-content: center;
+        align-items: end;
+    }
+    .title {
+        margin: 0;
+    }
+    .title-img{
+        width: 88px;
+    }
+    h1{
+        font-size: 72px;
+
+    }
+    .search-bar {
+        top: 108px;
+        left: calc(50% - 120px);
+    }
+}
+
+@media(max-width: 720px){
+    .detail-viewer-canvas {
+    min-width: 180px;
+    }
+    .pokemon-detail-viewer{
+        width: 70%;
+    }
+    .attribute-box{
+        width: 90%;
+        height: 100%;
+        max-height: 284px;
+        p{
+            font-size: 16px;
+        }
+    }
+    .detail-viewer-icon {
+        width: 40px;
+        position: relative;
+        top: calc(50% - 120px);
+        left: calc(50% - 30px);
+    }
+    .evo-chain-img {
+        display: none;
+    }
+}
+
+@media(max-width: 664px){
+    .detail-viewer-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    }
+    .arrow-normal{
+        display: none;
+    }
+    .arrow-small{
+        display: flex;
+    }
+}
+
+@media(max-width: 440px){
+    .title {
+        margin-bottom: 40px;
+        gap: 8px;
+    }
+    .title-img{
+        width: 72px;
+    }
+    h1{
+        font-size: 50px;
+    }
+}
