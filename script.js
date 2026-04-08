@@ -229,14 +229,12 @@ function addSuggestion(suggestionID){
 
 async function searchPokemon(){
     let searchName = document.getElementById('search-bar-input').value;
-    let tempArray = [];
-    for (let index = 0; index < offset; index++) {
-        response = await fetch (`https://pokeapi.co/api/v2/pokemon-species/${index}`);
-        tempArray = await response.json();
-        if (searchName == tempArray.name) {
-            openDetailViewer(index);
-        } else if (index == offset){
-            console.log("Pokemon is not in the current list");
-        }
+    response = await fetch (`https://pokeapi.co/api/v2/pokemon/${searchName}`);
+    let tempArray = await response.json();
+    if (tempArray.id > offset) {
+        console.log("Pokemon not found among loaded elements")
+    } else{
+        openDetailViewer(tempArray.id);
     }
 }
+
