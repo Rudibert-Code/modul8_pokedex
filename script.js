@@ -203,8 +203,7 @@ function getSuggestions(){
 let nameSuggestions;
 
 async function findSuggestions(inputID){
-    //console.clear();
-    document.getElementById('search-suggestions').innerHTML = "";
+    //document.getElementById('search-suggestions').innerHTML = "";
     let allData;
     response = await fetch (`https://pokeapi.co/api/v2/pokemon?limit=151&offset=0`);
     allData = await response.json();
@@ -213,12 +212,31 @@ async function findSuggestions(inputID){
         let ergebnis = nameSuggestions.includes(inputID);
         console.log(ergebnis);
         if (ergebnis == true) {    
-                //console.table(nameSuggestions); 
                 renderSuggestions(nameSuggestions, i);   
         }   
     }
 }
 
-function renderSuggestions(nameSuggestions, sugID){
-    document.getElementById('search-suggestions').innerHTML += `<a onclick="addSuggestion(${sugID})" id="suggestion-${sugID}">${nameSuggestions}</a>`;
+function renderSuggestions(nameSuggestions, suggestionID){
+    document.getElementById('search-suggestions').innerHTML += `<a class="clickable" onclick="addSuggestion(${suggestionID})" id="suggestion-${suggestionID}">${nameSuggestions}</a><br>`;
+}
+
+function addSuggestion(suggestionID){
+    let newSuggestion = document.getElementById("suggestion-" + suggestionID).innerHTML;
+    document.getElementById('search-bar-input').value = newSuggestion;
+    document.getElementById('search-suggestions').innerHTML = "";
+}
+
+async function searchPokemon(){
+    let searchName = document.getElementById('search-bar-input').value;
+    let tempArray = [];
+    for (let index = 0; index < offset; index++) {
+        response = await fetch (`https://pokeapi.co/api/v2/pokemon-species/${index}`);
+        tempArray = await response.json();
+        if (searchName == tempArray.name) {
+            openDetailViewer(index);
+        } else if (index == offset){
+            console.log("Pokemon is not in the current list");
+        }
+    }
 }

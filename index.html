@@ -14,12 +14,11 @@
     <header>
         <section class="header-container">
             <section class="search-bar">
+                <dialog open class="suggestions-dialog" id="search-suggestions"></dialog>
                 <section class="search-bar-input">
                     <input type="text" id="search-bar-input" onkeyup="getSuggestions()">
-                    <div class="suggestions-box" id="search-suggestions">
-                    </div>
                 </section>
-                <p class="search-bar-btn" onclick="">Search</p>
+                <p class="search-bar-btn" onclick="searchPokemon()">Search</p>
             </section>
         </section>
         <nav></nav>

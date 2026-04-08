@@ -51,6 +51,21 @@ input{
     color: white;
 }
 
+.suggestions-dialog{
+    position: sticky;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    width: 185px;
+    height: 39px;
+    background-color: black;
+    border-style: none;
+    outline: none;
+    border-radius: 8px;
+    padding: 12px 8px;
+    color: white;
+}
+
 .search-bar{
     display: flex;
     align-items: center;
