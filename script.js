@@ -171,7 +171,9 @@ function renderPrevious(pokemonID){
 function listEnd(pokemonID){
     if (pokemonID <= 1) {
         document.getElementById('block-list-start').classList.toggle("hidden");
+        document.getElementById('block-list-start-small').classList.toggle("hidden");
         document.getElementById('arrow-list-previous').classList.toggle("hidden");
+        document.getElementById('arrow-list-previous-small').classList.toggle("hidden");
     }
     if (pokemonID >= 151) {
         document.getElementById('block-list-end').classList.toggle("hidden");
