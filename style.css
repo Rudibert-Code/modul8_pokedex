@@ -391,7 +391,7 @@ transform: scaleX(-1);
     flex-direction: column;
     justify-content: start;
     align-items: start;
-    background-image: linear-gradient(to bottom, #ffffff, rgb(195, 195, 195), rgb(209, 209, 209));
+    background-image: linear-gradient(to bottom, #eaeaea, rgb(214, 214, 214), rgb(222, 222, 222));
     outline: solid rgba(0, 0, 0, 0.325) 2px;
     p{
         padding-inline: 16px;

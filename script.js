@@ -68,7 +68,7 @@ async function openDetailViewer(pokemonID){
     document.getElementById('pokemonAudio').volume = 0.03;
     listEnd(pokemonID);
     renderAttributes(pokemonID);
-    renderEvolution(pokemonID);
+    checkForEevee(pokemonID);
     document.getElementById('detail-viewer').showModal();
     document.documentElement.classList.add("scroll-stopper");
 }
@@ -87,6 +87,31 @@ async function renderStats(){
     }
 }
 
+function checkForEevee(pokemonID){
+    if (pokemonID >= 134 && pokemonID <= 136) {
+        renderEeveelution(pokemonID);
+    } else{
+        renderEvolution(pokemonID);
+    }
+}
+
+async function renderEeveelution(pokemonID){
+    let pokemonXP = detailViewer.base_experience;
+    for (let index = 3; index > 0; index--) {
+        pokemonID--
+        if (pokemonID <= 0) {
+            return
+        }
+        response = await fetch (`https://pokeapi.co/api/v2/pokemon/${pokemonID}`);
+        let pokemonJSON = await response.json();
+        let currentXP = pokemonJSON.base_experience;
+        if (currentXP < pokemonXP) {
+            document.getElementById('previousEvolution').innerHTML = `<img class="evo-chain-img" src="${pokemonJSON.sprites.front_default}">`;
+            index = 0;
+        }
+    }
+}
+
 async function renderEvolution(pokemonID){
     let prevXP = detailViewer.base_experience;
         pokemonID--
@@ -96,7 +121,7 @@ async function renderEvolution(pokemonID){
         response = await fetch (`https://pokeapi.co/api/v2/pokemon/${pokemonID}`);
         let pokemonJSON = await response.json();
         let currentXP = pokemonJSON.base_experience;
-        if (currentXP <= prevXP) {
+        if (currentXP < prevXP) {
             document.getElementById('previousEvolution').innerHTML = `<img class="evo-chain-img" src="${pokemonJSON.sprites.front_default}">`;
             prevXP = currentXP;
         } else{
