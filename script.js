@@ -36,6 +36,7 @@ async function renderList(){
     }
     document.getElementById('next-min').innerHTML = offset + 1;
     document.getElementById('next-max').innerHTML = offset + renderLimit;
+    checkForMax();
     closeLoadingScreen();
 }
 
@@ -271,9 +272,18 @@ async function searchPokemon(){
         document.documentElement.classList.add("scroll-stopper");
         document.getElementById('error-next-min').innerHTML = offset + 1;
         document.getElementById('error-next-max').innerHTML = offset + renderLimit;
+        checkForMax();
     } else{
         document.getElementById('search-bar-input').value = "";
         openDetailViewer(tempArray.id);
     }
+}
+
+function checkForMax(){
+   let maxNumber = offset + renderLimit;
+   if (maxNumber > 151) {
+        document.getElementById('next-max').innerHTML = 151;
+        document.getElementById('error-next-max').innerHTML = 151;
+   }
 }
 
