@@ -5,6 +5,8 @@ let previewLimiter = 0;
 let renderLimit = 20;
 let offset = 0;
 let pokemonDescription;
+const dialogWindow = document.getElementById('pokemon-detail-viewer');
+let dialogState = false;
 
 function init(){
     fetchData();
@@ -61,6 +63,7 @@ function getType(pokemon){
 
 async function openDetailViewer(pokemonID){
     detailViewer = [];
+    dialogState = true;
     response = await fetch (`https://pokeapi.co/api/v2/pokemon/${pokemonID}`);
     detailViewer = await response.json(); 
     document.getElementById('detail-viewer').innerHTML = detailViewerTemplate(detailViewer);
@@ -72,6 +75,15 @@ async function openDetailViewer(pokemonID){
     document.getElementById('detail-viewer').showModal();
     document.documentElement.classList.add("scroll-stopper");
 }
+
+document.addEventListener("keydown", processKeyEntered);
+
+function processKeyEntered(key){
+    if (dialogState == true) {
+        } if(key.key == "Escape"){
+           closeDetailViewer();
+        }
+    }
 
 async function renderStats(){
     document.getElementById('pokemon-stats').innerHTML="";

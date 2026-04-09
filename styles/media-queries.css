@@ -37,8 +37,9 @@
     min-width: 148px;
     }
     .pokemon-detail-viewer{
-        width: 70%;
-        margin: 16px;
+        width: 80%;
+        height: 524px;
+        margin: 0;
     }
     .attribute-box{
         width: 90%;
@@ -76,6 +77,13 @@
     }
     .arrow-small{
         display: flex;
+    }
+    .stat-bar-max {
+    width: 90%;
+    margin-top: 12px;
+    }
+    .stat-title {
+    font-size: 12px;
     }
 }
 
