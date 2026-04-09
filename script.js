@@ -4,6 +4,7 @@ let detailViewer = [];
 let previewLimiter = 0;
 let renderLimit = 20;
 let offset = 0;
+let pokemonDescription;
 
 function init(){
     fetchData();
@@ -135,7 +136,7 @@ async function renderAttributes(pokemonID){
     document.getElementById('stats-title').classList.remove("text-bold");
     response = await fetch (`https://pokeapi.co/api/v2/pokemon-species/${pokemonID}`);
     let pokemonJSON = await response.json();
-    let pokemonDescription = pokemonJSON.flavor_text_entries[0].flavor_text;
+    findDescription(pokemonJSON);
     let pokemonDescriptionFixed = pokemonDescription.replace("\f", " ");
     let pokemonHeight = detailViewer.height;
     let displayHeight = "Height: " + (pokemonHeight / 10) + "m";
@@ -143,6 +144,16 @@ async function renderAttributes(pokemonID){
     let displayWeight = "Weight: " + (pokemonWeight / 10) + "kg";
     document.getElementById('pokemon-stats').innerHTML=`<div class="attribute-box"><p>${displayHeight}</p>
     <p>${displayWeight}</p><span>${pokemonDescriptionFixed}</span></div>`;
+}
+
+function findDescription(pokemonJSON){
+    for (let i = 0; i < 3; i++) {
+        descriptionLanguage = pokemonJSON.flavor_text_entries[i].language.name;   
+        if (descriptionLanguage == "en"){
+            pokemonDescription = pokemonJSON.flavor_text_entries[i].flavor_text;
+            return
+        }
+    }
 }
 
 function colorBar(targetID, barValue){

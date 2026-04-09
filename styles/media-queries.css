@@ -30,22 +30,31 @@
 }
 
 @media(max-width: 720px){
+    .detail-viewer-info-box {
+        height: 260px;
+    }
     .detail-viewer-canvas {
-    min-width: 180px;
+    min-width: 148px;
     }
     .pokemon-detail-viewer{
         width: 70%;
+        margin: 16px;
     }
     .attribute-box{
         width: 90%;
         height: 100%;
-        max-height: 284px;
+        max-height: 237px;
         p{
             font-size: 16px;
+            padding-bottom: 0;
+        }
+        span {
+            font-size: 14px;
+            padding: 8px 16px;
         }
     }
     .detail-viewer-icon {
-        width: 40px;
+        width: 32px;
         position: relative;
         top: calc(50% - 120px);
         left: calc(50% - 30px);

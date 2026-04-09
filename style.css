@@ -120,6 +120,7 @@ h1{
 }
 
 .pokemon-card{
+    cursor: pointer;
     width: 244px;
     height: 320px;
     display: flex;
