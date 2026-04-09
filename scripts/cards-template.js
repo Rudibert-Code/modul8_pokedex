@@ -20,9 +20,7 @@ function detailViewerTemplate(pokemon){
             <img class="" src="./assets/icons/icon-arrow.png" onclick="renderPrevious(${pokemon.id})" id="arrow-list-previous">
         </div>
         <section class="pokemon-detail-viewer bg-${pokemon.types[0].type.name}">
-
         <div class="evolution-chain-img" id="previousEvolution"></div>
-
         <section class="pokemon-header detail-header">
             <p>${getNumber(pokemon.id)}</p>
             <h2>${pokemon.name}</h2>

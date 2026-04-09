@@ -157,13 +157,13 @@ function findDescription(pokemonJSON){
 }
 
 function colorBar(targetID, barValue){
-        if (barValue >= 99 ) {
-            document.getElementById(targetID).classList.add("stat-high");
-        } else if(barValue <= 33 ){
-            document.getElementById(targetID).classList.add("stat-low");
-        } else{
-            document.getElementById(targetID).classList.add("stat-mid");
-        }
+    if (barValue >= 99 ) {
+        document.getElementById(targetID).classList.add("stat-high");
+    } else if(barValue <= 33 ){
+        document.getElementById(targetID).classList.add("stat-low");
+    } else{
+        document.getElementById(targetID).classList.add("stat-mid");
+    }
 }
 
 function renderNext(pokemonID){
